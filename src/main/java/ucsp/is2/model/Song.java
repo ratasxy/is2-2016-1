@@ -15,9 +15,19 @@ public class Song {
 	private Long id;
 	
 	public long int Play_Counter=0;
+	private int Month;
 	
 	public void Increase_Counter(){
 		Play_Counter++;
+	}
+	
+	private void Update_Month(){
+		Calendar Today = Calendar.getInstance();
+		if (Month!=Today.get(Calendar.MONTH)){
+			Month=Today.get(Calendar.MONTH);
+			Play_Counter=0;
+		}
+		
 	}
 
 	private String name;
