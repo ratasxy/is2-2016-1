@@ -2,5 +2,5 @@
 
 echo "Installing packages"
 
-gradle build
+gradle clean build
 gradle bootRun
