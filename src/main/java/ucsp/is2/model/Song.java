@@ -13,6 +13,12 @@ public class Song {
 	@SequenceGenerator(name="SONG_ID_GENERATOR", sequenceName="SONG_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SONG_ID_GENERATOR")
 	private Long id;
+	
+	public long int Play_Counter=0;
+	
+	public void Increase_Counter(){
+		Play_Counter++;
+	}
 
 	private String name;
 
