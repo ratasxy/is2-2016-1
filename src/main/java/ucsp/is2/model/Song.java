@@ -37,7 +37,7 @@ public class Song {
            		if(findSong[cant].equals(songSearch)){
                		result = cant;
            		}
-           	cant++;
+           		cant++;
        		}
        		return result;
        } 
