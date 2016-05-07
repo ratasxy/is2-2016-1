@@ -36,27 +36,17 @@ public void funciones(String y){
     public void Stop() throws Exception {
         player.stop();
     }
+
     public void reproducemp3 () throws Exception{
        try {
         Reproductor   mi_reproductor = new Reproductor();
-            mi_reproductor.AbrirFichero("/Users/luis/Desktop/Musica”);
+            mi_reproductor.AbrirFichero("/Users/luis/Desktop/Musica");
             mi_reproductor.Play();
         } catch (Exception ex) {
             System.out.println("Error: " + ex.getMessage());
         }
     }
 
-    private int searchSong(String[] findSong, String songSearch) {
-       int result = -1;
-       int cant = 0;
-       for(String songFounded : findSong){
-           if(findSong[cant].equals(songSearch)){
-               result = cant;
-           }
-           cant++;
-       }
-       return result;
-    } 
 
     public static void main(String args[]) throws Exception{
      Reproductor y = new Reproductor();
