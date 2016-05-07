@@ -29,6 +29,18 @@ public class Song {
 		}
 		
 	}
+	
+	private int searchSong(String[] findSong, String songSearch) {
+       	       int result = -1;
+      	       int cant = 0;
+       	       for(String songFounded : findSong){
+           		if(findSong[cant].equals(songSearch)){
+               		result = cant;
+           		}
+           		cant++;
+       		}
+       		return result;
+       } 
 
 	private String name;
 
