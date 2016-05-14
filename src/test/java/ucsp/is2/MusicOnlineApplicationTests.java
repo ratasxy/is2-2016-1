@@ -15,6 +15,7 @@ import ucsp.is2.repository.SongRepository;
 @SpringApplicationConfiguration(classes = MusicOnlineApplication.class)
 @WebAppConfiguration
 public class MusicOnlineApplicationTests {
+
 	@Autowired
 	SongRepository songRepository;
 
@@ -22,8 +23,11 @@ public class MusicOnlineApplicationTests {
 	public void testSaveSong() {
 		Song song = new Song();
 		song.setName("My Song");
+		int oldSize = songRepository.findAll().size();
 		songRepository.save(song);
+		int newSize = songRepository.findAll().size();
 		Assert.assertNotNull(song.getId());
+		Assert.assertEquals(oldSize, newSize);
 	}
 
 
