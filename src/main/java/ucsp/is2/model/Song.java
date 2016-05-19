@@ -1,5 +1,7 @@
 package ucsp.is2.model;
 
+import java.util.Calendar;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,13 +16,14 @@ public class Song {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SONG_ID_GENERATOR")
 	private Long id;
 	
-	public long int Play_Counter=0;
+	public int Play_Counter=0;
 	private int Month;
 	
 	public void Increase_Counter(){
 		Play_Counter++;
 	}
 	
+	@SuppressWarnings("unused")
 	private void Update_Month(){
 		Calendar Today = Calendar.getInstance();
 		if (Month!=Today.get(Calendar.MONTH)){

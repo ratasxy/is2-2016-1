@@ -7,13 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 @Entity
 public class Puntuation{
-    @ID
+    @Id
     @SequenceGenerator(name="PUNTIATION_GENERATOR", sequenceName="PUNTUATION_SEQ")
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PUNTUATION_GENERATOR")
 
 
-    private integer score = 0;
-    public Puntuacion(){
+    private static long score = 0;
+    public void Puntuacion(){
     
 	}
 	public long getScore() {
@@ -21,14 +21,18 @@ public class Puntuation{
 	}
 
 	public void setScore(long score) {
-		this.score = score;
+		Puntuation.score = score;
 	}
     
-    public static integer clasification(){
+    public static void clasification(){
         
             score = score + 1;
             Puntuation.save(score);
             System.out.println(score);
     }
+	private static void save(long score2) {
+		// TODO Auto-generated method stub
+		
+	}
  
 }
