@@ -1,4 +1,4 @@
-gradle:
+web:
     build: ./java
     expose:
         - "8080"
@@ -7,3 +7,25 @@ gradle:
     volumes:
         - "../:/app"
     restart: "on-failure"
+    links:
+      - db
+      - search
+      - streaming
+
+db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+
+search:
+    image: leodido/sphinxsearch
+    restart: "on-failure"
+    links:
+      - db
+
+streaming:
+    image: mondain/red5
+    ports:
+      - "0.0.0.0:5080:5080"
+      - "0.0.0.0:1935:1935"
+      - "0.0.0.0:8081:8081"
