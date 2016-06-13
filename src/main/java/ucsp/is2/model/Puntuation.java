@@ -4,31 +4,37 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+
 @Entity
 public class Puntuation{
-    @ID
-    @SequenceGenerator(name="PUNTIATION_GENERATOR", sequenceName="PUNTUATION_SEQ")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="PUNTUATION_GENERATOR")
-
-
-    private integer score = 0;
-    public Puntuacion(){
+	
+	@Id
+	@GeneratedValue (strategy = GenerationType.SEQUENCE , generator ="PUNTUATION_SEQ")
+	public static String TABLE_NAME="puntuation";
+    private long id;
+    private long score = 0;
     
-	}
-	public long getScore() {
-		return score;
-	}
-
-	public void setScore(long score) {
-		this.score = score;
-	}
-    
-    public static integer clasification(){
-        
-            score = score + 1;
-            Puntuation.save(score);
-            System.out.println(score);
+    public Puntuation(long score){
+    	this.score =score;
     }
- 
+
+	public long getId(){
+    	return id;
+    }
+    
+    public void setId(long id){
+    	this.id=id;
+    }
+    
+  	public long getScore() {
+  		return score;
+  	}
+
+  	public void setScore(long score) {
+  		this.score = score;
+  	}
+
+	public void add(int num, String name) {
+		//
+	}
 }
