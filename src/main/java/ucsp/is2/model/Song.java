@@ -8,32 +8,24 @@ import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Song {
-
+	
 	@Id
 	@SequenceGenerator(name="SONG_ID_GENERATOR", sequenceName="SONG_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SONG_ID_GENERATOR")
-	private Long id;
+	private long id;
+	public long Play_Counter=0;
+    private long score = 0;
+	private String name;
 	
-	public long int Play_Counter=0;
-	private int Month;
+	public Song (long score){
+    	this.score =score;
+    }
 	
 	public void Increase_Counter(){
 		Play_Counter++;
 	}
-	
-	private void Update_Month(){
-		Calendar Today = Calendar.getInstance();
-		if (Month!=Today.get(Calendar.MONTH)){
-			Month=Today.get(Calendar.MONTH);
-			Play_Counter=0;
-		}
-		
-	}
-	
 
-	private String name;
-
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -47,5 +39,17 @@ public class Song {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public long getScore() {
+  		return score;
+  	}
+
+  	public void setScore(long score) {
+  		this.score = score;
+  	}
+
+	public void add(int i, String name) {
+		//
 	}
 }
