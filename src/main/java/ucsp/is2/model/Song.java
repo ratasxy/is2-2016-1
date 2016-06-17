@@ -12,9 +12,10 @@ public class Song {
 	@Id
 	@SequenceGenerator(name="SONG_ID_GENERATOR", sequenceName="SONG_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SONG_ID_GENERATOR")
-	private Long id;
-
+	private long id;
+	private Long CounterPlayed;
 	private String name;
+	private Long puntuation;
 
 	public Long getId() {
 		return id;
@@ -31,4 +32,17 @@ public class Song {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public void IncreamentCounter(){
+		this.CounterPlayed = this.CounterPlayed + 1;
+	}
+
+	public void setPuntuation( Long scores ){
+		this.puntuation = scores;	
+	}
+	
+	public Long getPuntuation(){
+		return this.puntuation;
+	}
+
 }
