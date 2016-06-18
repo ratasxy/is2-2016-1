@@ -22,7 +22,7 @@ public class UserController{
 	public void RegisterUser( @RequestBody MinimumUser Datas ){
 		Optional< User > usuario = Repository.findByEmail( Datas.Email );
 		if( usuario.isPresent() == false ){
-			User NewUsuario = new User( Datas.Firstname, Datas.Lastname, Datas.Email, Datas.Password , Datas.Nickname );
+			User NewUsuario = new User( Datas.Firstname, Datas.Lastname, Datas.Email, Datas.Password, Datas.Nickname );
 			Repository.save( NewUsuario );	
 		}
 	}
