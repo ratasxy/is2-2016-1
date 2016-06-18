@@ -13,6 +13,6 @@ public interface UserRepository extends Repository< User , Long >{
 	public User findById(Long id);
 	public List< User > findAll();
 	public Optional< User > findByEmail( String email );
-	public Optional< User > findByPassword( Long id ); /// checkout
-	public void delete( User user );
+	public Optional< User > findByPassword( String password ); /// checkout
+	public void delete( User userdead );
 }
