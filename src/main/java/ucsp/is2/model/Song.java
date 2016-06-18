@@ -12,10 +12,15 @@ public class Song {
 	@Id
 	@SequenceGenerator(name="SONG_ID_GENERATOR", sequenceName="SONG_ID_SEQ")
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SONG_ID_GENERATOR")
-	private long id;
+	private Long id;
 	private Long CounterPlayed;
 	private String name;
 	private Long puntuation;
+
+	public Song(){
+		CounterPlayed = 0;
+		puntuation = 0;
+	}
 
 	public Long getId() {
 		return id;
