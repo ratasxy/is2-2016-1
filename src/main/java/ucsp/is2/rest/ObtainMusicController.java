@@ -16,7 +16,7 @@ public class ObtainMusicController {
 	@Autowired
 	private SongRepository songs;
 	
-	@RequestMapping(value="/song/get/json", method=RequestMethod.GET)
+	@RequestMapping(value="/song/{id}", method=RequestMethod.GET)
 	public ResponseEntity<Song> getSong(@PathVariable Long id) {
 		Song song =  songs.findById(id);
 		if (song == null) {
